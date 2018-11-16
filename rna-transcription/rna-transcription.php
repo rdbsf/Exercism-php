@@ -1,8 +1,6 @@
 <?php
 
-
-const MAPPING_DNA = array('A', 'C', 'G', 'T');
-const MAPPING_RNA = array('U', 'G', 'C', 'A');
+const MAPPING_DNA_TO_RNA = array('A' => 'U', 'C' => 'G', 'G' => 'C', 'T' => 'A');
 
 function toRna($strand)
 {
@@ -10,10 +8,9 @@ function toRna($strand)
 
         foreach(str_split($strand) as $strandChar)
         {
-            if (in_array($strandChar, MAPPING_DNA))
+            if (array_key_exists($strandChar, MAPPING_DNA_TO_RNA))
             {
-                $index = array_search($strandChar, MAPPING_DNA);
-                $rna[] = MAPPING_RNA[$index];
+                $rna[] = MAPPING_DNA_TO_RNA[$strandChar];
             }
             else {
                 throw new Exception('Strand element not found');
