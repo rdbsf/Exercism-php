@@ -15,7 +15,6 @@ function recognize($input)
         throw new InvalidArgumentException;
     }
 
-
     $answers = array();
 
     $answers[1] = array(

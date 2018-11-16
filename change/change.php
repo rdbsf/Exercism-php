@@ -25,8 +25,6 @@ function findFewestCoins($coins, $amount)
         }
     }
 
-
-
     if ($amount > 0)
     {
         throw new InvalidArgumentException('No combination can add up to target');
